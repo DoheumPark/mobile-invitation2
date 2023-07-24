@@ -2,8 +2,8 @@ import express, { Express, Request, Response, Router } from 'express';
 const router: Router = express.Router();
 
 router.get('/create', async(req: Request, res: Response) => {
-    res.json('test');
+    res.render('invitation/create', { title: '하하하' });
 });
 
 
-module.exports = router;
+export default router;
