@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="/src/public/css/common.css" rel="stylesheet">
+  <link href="/src/public/css/invitation.css" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="img-editor-container">
+    <div class="canvas-container"><canvas id="canvas" width="500" height="500"></canvas></div>
+    <div class="img-editor-menu-child">
+      <!-- <div class="img-editor-menu show" data-menu="crop">크롭</div> -->
+      <div class="img-editor-menu" data-menu="sel"></div>
+      <div class="img-editor-menu" data-menu="pic">
+        사진
+        <input id="input-upload-pic" type="text" value="http://127.0.0.1:5500/src/public/img/dd.jpg">
+        <button id="btn-pic-add">이미지 추가</button>
+        <button id="btn-delete-pic">이미지 삭제</button>      
+      </div>
+      <div class="img-editor-menu" data-menu="filter">
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-grayscale" data-index="0" data-filter="Grayscale">
+          <label for="chk-filter-grayscale">Grayscale</label>
+        </div>
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-invert" data-index="1" data-filter="Invert">
+          <label for="chk-filter-invert">Invert</label>
+        </div>
+      </div>
+      <div class="img-editor-menu" data-menu="pen">        
+        <div class="pen-draw-color-container">
+          <input type="color" id="input-color-pen">
+          <div id="color-picker-result" class="pointer"></div>
+          <label>Color</label>
+        </div>
+        <div>
+          <span class="info">5</span>
+          <input type="range" id="input-width-pen" value="5" min="1" max="30">
+        </div>
+      </div>
+      <div class="img-editor-menu" data-menu="eraser">
+        
+        <!-- <label><input type="checkbox" id="chk-enable-erase">객체 삭제</label> -->
+        <div>
+          <button id="btn-all-clear">전체 삭제</button>
+        </div>
+        <div>
+          <span class="info">5</span>
+          <input type="range" id="input-width-eraser" value="5" min="1" max="30">
+        </div>
+      </div>
+    </div>
+    <ul class="img-editor-menu-parent">
+      <!-- <li class="pointer menu-parent selected" data-menu="crop">크롭</li> -->
+      <li class="pointer menu-parent" data-menu="sel">선택</li>
+      <li class="pointer menu-parent" data-menu="pic">사진</li>
+      <li class="pointer menu-parent" data-menu="filter">필터</li>
+      <li class="pointer menu-parent" data-menu="pen">펜</li>
+      <li class="pointer menu-parent" data-menu="eraser">지우개</li>
+      <li id="btn-download" class="pointer">다운로드</li>
+    </ul>
+    
+  </div>
+  
+
+</body>
+<script src="/src/public/js/fabric.min.js"></script>
+<script src="/src/public/js/invitation.js"></script>
+</html>
