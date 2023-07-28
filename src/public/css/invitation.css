@@ -1,17 +1,16 @@
-.img-editor-container { display: grid; grid-template-columns: 1fr 300px 120px; }
-.img-editor-container .canvas-container { position: relative; }
-.img-editor-container .canvas-container #canvas { border: 1px solid #ccc; }
-
-
-
+.img-editor-container { display: grid; grid-template-columns: 1fr 200px 120px; }
+.img-editor-container .canvas-container { position: relative; width: 500px; height: 500px; }
+.img-editor-container .canvas-container #canvas { border: 1px solid #ccc; width: 100%; height: 100%; }
 
 
 .img-editor-menu-child {}
 .img-editor-menu { display: none; }
 .show { display: block !important; }
 
-.pen-draw-color-container #input-color-pen { visibility: hidden; }
-.pen-draw-color-container #color-picker-result { background-color: #000; border: 0; width:32px; height: 32px; border-radius: 100%; }
+
+.color-picker-result { background-color: #000; border: 0; width:32px; height: 32px; border-radius: 100%; }
+
+
 
 
 .img-editor-menu-parent .menu-parent { }

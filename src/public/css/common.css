@@ -3,3 +3,4 @@ ul, li { list-style-type: none; }
 
 
 .pointer { cursor: pointer; }
+.hidden { visibility: hidden; }

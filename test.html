@@ -5,8 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Hi+Melody&family=Noto+Sans+KR:wght@300&family=Bagel+Fat+One&display=swap" rel="stylesheet">  
   <link href="/src/public/css/common.css" rel="stylesheet">
   <link href="/src/public/css/invitation.css" rel="stylesheet">
+
+  
 </head>
 <body>
   
@@ -14,27 +19,98 @@
     <div class="canvas-container"><canvas id="canvas" width="500" height="500"></canvas></div>
     <div class="img-editor-menu-child">
       <!-- <div class="img-editor-menu show" data-menu="crop">크롭</div> -->
-      <div class="img-editor-menu" data-menu="sel"></div>
+     
+      <div class="img-editor-menu" data-menu="sel">
+        삭제하고 싶은 객체 선택 후 Delete 키 입력
+        <div>
+          <button id="btn-layer-up">위</button>
+          <button id="btn-layer-down">아래</button>
+        </div>
+        <div>
+          <button id="btn-stratch-height">늘리기</button>
+        </div>
+        <div><textarea id="txt-json"></textarea><button id="btn-load-json">Load</button></div>
+      </div>
+     
       <div class="img-editor-menu" data-menu="pic">
         사진
         <input id="input-upload-pic" type="text" value="http://127.0.0.1:5500/src/public/img/dd.jpg">
-        <button id="btn-pic-add">이미지 추가</button>
-        <button id="btn-delete-pic">이미지 삭제</button>      
+        <button id="btn-pic-add">이미지 추가</button>        
       </div>
+     
       <div class="img-editor-menu" data-menu="filter">
         <div>
-          <input type="checkbox" class="chk-filters" id="chk-filter-grayscale" data-index="0" data-filter="Grayscale">
-          <label for="chk-filter-grayscale">Grayscale</label>
+          <input type="checkbox" class="chk-filters" id="chk-filter-0" data-index="0" data-filter="Grayscale">
+          <label for="chk-filter-0">Grayscale</label>
+          <div>
+            <label><input type="radio" class="gray-level" name="filter-0" id="radio-filter-0-lightness" data-level="lightness" checked disabled>Lightness</label>
+            <label><input type="radio" class="gray-level" name="filter-0" id="radio-filter-0-average" data-level="average" disabled>Average</label>
+            <label><input type="radio" class="gray-level" name="filter-0" id="radio-filter-0-luminosity" data-level="luminosity" disabled>Luminosity</label>
+          </div>
+        </div>      
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-1" data-index="1" data-filter="Sepia">
+          <label for="chk-filter-1">Sepia</label>
         </div>
         <div>
-          <input type="checkbox" class="chk-filters" id="chk-filter-invert" data-index="1" data-filter="Invert">
-          <label for="chk-filter-invert">Invert</label>
+          <input type="checkbox" class="chk-filters" id="chk-filter-2" data-index="2" data-filter="Brownie">
+          <label for="chk-filter-2">Brownie</label>
+        </div>
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-3" data-index="3" data-filter="Vintage">
+          <label for="chk-filter-3">Vintage</label>
+        </div>
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-4" data-index="4" data-filter="Technicolor">
+          <label for="chk-filter-4">Technicolor</label>
+        </div>
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-5" data-index="5" data-filter="Polaroid">
+          <label for="chk-filter-5">Polaroid</label>
+        </div>
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-6" data-index="6" data-filter="Kodachrome">
+          <label for="chk-filter-6">Kodachrome</label>
+        </div>
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-7" data-index="7" data-filter="BlackWhite">
+          <label for="chk-filter-7">BlackWhite</label>
+        </div>
+        <div>
+          <input type="checkbox" class="chk-filters" id="chk-filter-9" data-index="9" data-filter="Invert">
+          <label for="chk-filter-9">Invert</label>
         </div>
       </div>
-      <div class="img-editor-menu" data-menu="pen">        
+    
+
+      <!-- 폰트 -->
+      <div class="img-editor-menu" data-menu="textbox">
+        <div>텍스트</div>
+        
+        <div class="font-color-container">
+          <input type="color" id="input-color-font" class="hidden">
+          <div id="color-picker-font-result" class="pointer color-picker-result"></div>
+          <label>Color</label>
+        </div>
+        <div>
+          <span class="info">5</span>
+          <input type="range" id="input-size-font" value="5" min="5" max="100">
+        </div>
+
+        <div>
+          <label for="sel-font-family">Font</label>
+          <select id="sel-font-family">            
+          </select>
+        </div>
+
+        <div><textarea id="txt-text"></textarea><button id="btn-add-text">Add</button></div>
+      </div>
+
+      <!-- 펜 -->
+      <div class="img-editor-menu" data-menu="pen">
         <div class="pen-draw-color-container">
-          <input type="color" id="input-color-pen">
-          <div id="color-picker-result" class="pointer"></div>
+          <input type="color" id="input-color-pen" class="hidden">
+          <div id="color-picker-draw-result" class="pointer color-picker-result"></div>
           <label>Color</label>
         </div>
         <div>
@@ -42,6 +118,7 @@
           <input type="range" id="input-width-pen" value="5" min="1" max="30">
         </div>
       </div>
+    
       <div class="img-editor-menu" data-menu="eraser">
         
         <!-- <label><input type="checkbox" id="chk-enable-erase">객체 삭제</label> -->
@@ -59,15 +136,18 @@
       <li class="pointer menu-parent" data-menu="sel">선택</li>
       <li class="pointer menu-parent" data-menu="pic">사진</li>
       <li class="pointer menu-parent" data-menu="filter">필터</li>
+      <li class="pointer menu-parent" data-menu="textbox">텍스트</li>
       <li class="pointer menu-parent" data-menu="pen">펜</li>
       <li class="pointer menu-parent" data-menu="eraser">지우개</li>
-      <li id="btn-download" class="pointer">다운로드</li>
+      <li id="btn-pic-download" class="pointer">이미지 다운로드</li>
+      <li id="btn-json-download" class="pointer">JSON 다운로드</li>
     </ul>
     
   </div>
   
 
 </body>
+<script src="/src/public/js/fontfaceobserver.js"></script>
 <script src="/src/public/js/fabric.min.js"></script>
 <script src="/src/public/js/invitation.js"></script>
 </html>
