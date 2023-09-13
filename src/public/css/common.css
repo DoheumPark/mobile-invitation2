@@ -1,6 +1,7 @@
-* { box-sizing: border-box; }
+* { box-sizing: border-box; padding: 0; margin: 0; }
 ul, li { list-style-type: none; }
 
-
-.pointer { cursor: pointer; }
 .hidden { visibility: hidden; }
+.pointer { cursor: pointer; }
+
+.locked { pointer-events: none; } /* 캔버스 readonly */

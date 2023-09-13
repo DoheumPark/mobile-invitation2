@@ -1,17 +1,18 @@
-.img-editor-container { display: grid; grid-template-columns: 1fr 200px 120px; }
+.img-editor-container { display: grid; grid-template-columns: 1fr 500px; position: relative; top: 20px; left: 20px; right: 20px; }
 .img-editor-container .canvas-container { position: relative; width: 500px; height: 500px; }
 .img-editor-container .canvas-container #canvas { border: 1px solid #ccc; width: 100%; height: 100%; }
+.img-editor-container .canvas-side { position: fixed; right: 10px; top: 20px; display:grid; grid-template-columns: 300px 200px; }
 
 
-.img-editor-menu-child {}
 .img-editor-menu { display: none; }
 .show { display: block !important; }
 
 
-.color-picker-result { background-color: #000; border: 0; width:32px; height: 32px; border-radius: 100%; }
+.color-picker-result {  border: 1px solid #000; width:32px; height: 32px; border-radius: 100%; }
 
 
 
-
+.bc-black { background-color: #000; }
+.bc-white { background-color: #fff; }
 .img-editor-menu-parent .menu-parent { }
 

@@ -1,16 +1,19 @@
 import dotenv from 'dotenv';
 import express, { Express, Request, Response } from 'express';
 import expressLayout from 'express-ejs-layouts';
-// import dotenv from 'dotenv';
 dotenv.config();
 
+import passport from 'passport';
 import path from 'path';
 import invitationController from './routes/invitation/InvitationController';
+import authController from './routes/auth/AuthController';
 
 
-const app: Express = express();
+const app = express();
 const port = process.env.SERVER_PORT;
 
+
+passport();
 
 
 // app.use(express.json());
@@ -30,6 +33,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/invitation', invitationController);
+app.use('/auth', authController);
 
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
